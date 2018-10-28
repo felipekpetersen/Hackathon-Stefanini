@@ -29,9 +29,7 @@ router.post('/cadastrar/bairro', async (req, res, next) => {
 router.get('/cadastrar/casos', async (req, res, next) => {
   try {
     let bairro = await Bairro.find({})
-    let casosInArray = await bairro.map(e => { return e.casos })
-    let total = casosInArray.reduce((a, b) => { return a + b }, 0);
-    res.render('inserirCasos', { bairros: bairro, total: total });
+    res.render('inserirCasos', { bairros: bairro});
   } catch (err) {
     next(err)
   }
@@ -51,7 +49,9 @@ router.post('/cadastrar/casos', async (req, res, next) => {
 router.get('/listar/casos', async (req, res, next) => {
   try {
     let bairro = await Bairro.find({})
-    res.render('listarCasos', { bairros: bairro });
+    let casosInArray = await bairro.map(e => { return e.casos })
+    let total = casosInArray.reduce((a, b) => { return a + b }, 0);
+    res.render('listarCasos', { bairros: bairro , total: total });
   } catch (err) {
     next(err)
   }
