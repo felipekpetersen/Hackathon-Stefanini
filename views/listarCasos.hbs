@@ -1,0 +1,22 @@
+<section>
+<div id="exibirDados">
+    
+
+    <table style="width:100%">
+  <tr>
+    <th>BAIRROS</th>
+    <th>CASOS</th> 
+  </tr>
+    {{#each bairros}}
+    <tr>
+        <td>{{this.nome}}</td>
+        <td>{{this.casos}}</td> 
+    </tr>
+    {{/each}}
+    <tr>
+        <td>TOTAL</td>
+        <td>{{total}}</td>
+    </tr>
+</table>
+</div>
+</section>

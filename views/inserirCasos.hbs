@@ -1,0 +1,14 @@
+ <section>
+     <div id="inserirCasos">
+    <form method="POST">
+        <select name="idBairro">
+            {{#each bairros}}
+                <option value="{{this._id}}" >{{this.nome}}</option>
+            {{/each}}
+        </select>
+        <input type="number" name="numeroCasos" placeholder="Insira o número de casos"/>
+        <button type="submit" value="Inserir"></button>
+    </form>
+</div>
+ </section>
+ 
